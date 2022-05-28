@@ -41,25 +41,25 @@ $OsInfo = Get-CimInstance -ClassName "Win32_OperatingSystem"
                 Install-WindowsFeature -Name "$($feature)" -IncludeManagementTools
             }
 
-                try {
-                    Install-ADDSForest `
-                    -SkipPreChecks `
-                    -CreateDnsDelegation:$false `
-                    -DatabasePath "C:\Windows\NTDS" `
-                    -DomainMode "WinThreshold" `
-                    -DomainName "$DomainName"`
-                    -ForestMode "WinThreshold" `
-                    -InstallDns:$true `
-                    -LogPath "C:\Windows\NTDS" `
-                    -NoRebootOnCompletion:$false `
-                    -SysvolPath "C:\Windows\SYSVOL" `
-                    -Force:$true
-                }
+            try {
+                Install-ADDSForest `
+                -SkipPreChecks `
+                -CreateDnsDelegation:$false `
+                -DatabasePath "C:\Windows\NTDS" `
+                -DomainMode "WinThreshold" `
+                -DomainName "$DomainName"`
+                -ForestMode "WinThreshold" `
+                -InstallDns:$true `
+                -LogPath "C:\Windows\NTDS" `
+                -NoRebootOnCompletion:$false `
+                -SysvolPath "C:\Windows\SYSVOL" `
+                -Force:$true
+            }
 
-                catch {
-                    Write-Warning -Message "Could not complete the forest installation."
-                    break
-                }
+            catch {
+                Write-Warning -Message "Could not complete the forest installation."
+                break
+            }
         }
         default {"This value is not supported."; break}
     }
