@@ -54,7 +54,7 @@ function GetHash {
                 $HashValue = Get-FileHash -Path $Hash.Name -Algorithm $Algorithm
                 Write-Host " `b `b File = $($Hash.name) `n `b `b Hash = $($HashValue.Hash) `n `b `b Algorithm = $($HashValue.algorithm) `n `b `b Date = $($date)"
                 Write-Host "==============================================================="
-                }
+            }
         }
         Stop-Transcript
     }
