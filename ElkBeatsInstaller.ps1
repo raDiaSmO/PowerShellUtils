@@ -73,13 +73,13 @@ function BeatsInstaller {
             }
         }
 
-    New-Service -name $($Beat) `
-    -displayName $($Beat) `
-    -binaryPathName "`"$WorkDir\$($Beat).exe`" `
-    -c `"$WorkDir\$($Beat).yml`" `
-    -path.home `"$WorkDir`" `
-    -path.data `"$env:ProgramData\$($Beat)`" `
-    -path.logs `"$env:ProgramData\$($Beat)\logs`""
+        New-Service -name $($Beat) `
+        -displayName $($Beat) `
+        -binaryPathName "`"$WorkDir\$($Beat).exe`" `
+        -c `"$WorkDir\$($Beat).yml`" `
+        -path.home `"$WorkDir`" `
+        -path.data `"$env:ProgramData\$($Beat)`" `
+        -path.logs `"$env:ProgramData\$($Beat)\logs`""
 
         try {
             Start-Process -FilePath sc.exe -ArgumentList "config $($Beat) start=delayed-auto" -Wait -Verbose
