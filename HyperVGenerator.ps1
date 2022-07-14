@@ -58,10 +58,9 @@ function HyperVGenerator () {
         [Int32]$LogicalProcessors = 2
     )
 
+$CurrentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 $WorkingDirectory = "$($StoragePath)"+"\"+"$($VMName)"
 New-Item -ItemType Directory "$($WorkingDirectory)" -Force
-
-$CurrentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 
     if (!($CurrentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))) {
         Write-Warning -Message "Not enough privileges to run this function."
