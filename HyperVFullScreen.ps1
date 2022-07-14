@@ -30,7 +30,8 @@ function HyperVFullScreen () {
         [Int32]$Vertical
     )
     
-$Status = Get-VM -Name $VMName
+    $Status = Get-VM -Name $VMName
+    
     if ($Status.State -eq "Running") {
         Write-Warning -Message "Unable to change settings while $($VMName) is running".
         break
