@@ -52,8 +52,8 @@ function BeatsInstaller {
     $Folders = @("$env:ProgramData\$($Beat)","$env:ProgramData\$($Beat)\logs")
 
         if (!(Test-Path -Path $WorkDir)) {
-                Write-Warning -Message "The following Beats packages are not found $($WorkDir)."
-                break
+            Write-Warning -Message "The following Beats packages are not found $($WorkDir)."
+            break
         }
 
         if (Get-ChildItem -Path "$($Path)" -ErrorAction SilentlyContinue | ? {$_.Extension -eq ".ZIP"}) {
