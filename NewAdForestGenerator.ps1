@@ -29,7 +29,7 @@ function ADDS () {
         [Int32]$Index
     )
     
-$OsInfo = Get-CimInstance -ClassName "Win32_OperatingSystem"
+    $OsInfo = Get-CimInstance -ClassName "Win32_OperatingSystem"
 
     switch ($OsInfo.ProductType) {
         "1" {Write-Warning -Message "The current OS is a workstation. Unable to install ADDS."; break}
