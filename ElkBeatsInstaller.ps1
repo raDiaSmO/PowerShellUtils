@@ -48,8 +48,8 @@ function BeatsInstaller {
     )
 
     foreach ($Beat in $Beats) {
-    $WorkDir = "$($Path)\$($Beat)-$($Version)-windows-x86_64"
-    $Folders = @("$env:ProgramData\$($Beat)","$env:ProgramData\$($Beat)\logs")
+        $WorkDir = "$($Path)\$($Beat)-$($Version)-windows-x86_64"
+        $Folders = @("$env:ProgramData\$($Beat)","$env:ProgramData\$($Beat)\logs")
 
         if (!(Test-Path -Path $WorkDir)) {
             Write-Warning -Message "The following Beats packages are not found $($WorkDir)."
